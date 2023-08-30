@@ -2,11 +2,13 @@ import { Dataset, createPlaywrightRouter } from 'crawlee';
 
 export const router = createPlaywrightRouter();
 
-router.addDefaultHandler(async ({ request, enqueueLinks, log }) => {
+router.addDefaultHandler(async ({ page, enqueueLinks, log }) => {
     log.info(`enqueueing new URLs`);
-    const url = request.loadedUrl;
+    const url = page.url();
+    log.info(`URL: ${url}`);
     if (!url) return;
     const { host } = new URL(url);
+    log.info(`host: ${host}`);
     await enqueueLinks({
         globs: [`${host}/*`],
         label: 'detail',
