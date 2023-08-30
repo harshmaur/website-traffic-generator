@@ -16,7 +16,6 @@ await Actor.init();
 
 const input = await Actor.getInput<{
     startUrls: string[]
-    shouldEnqueue?: boolean
 }>();
 
 if (input === null) {
