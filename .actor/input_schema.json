@@ -1,18 +1,16 @@
 {
-    "title": "PlaywrightCrawler Template",
+    "title": "Website Traffic Generator Options",
+    "description": "Specify the options to generate traffic on urls of your choice. ",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
         "startUrls": {
             "title": "Start URLs",
             "type": "array",
-            "description": "URLs to start with.",
-            "editor": "requestListSources",
-            "prefill": [
-                {
-                    "url": "https://apify.com"
-                }
-            ]
+            "description": "URLs to begin the crawler with. Enter one per line",
+            "default": "https://apify.com",
+            "editor": "stringList"
         }
-    }
+    },
+    "required": ["startUrls"]
 }

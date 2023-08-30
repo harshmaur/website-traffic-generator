@@ -1,7 +1,8 @@
 /**
- * This template is a production ready boilerplate for developing with `PlaywrightCrawler`.
- * Use this to bootstrap your projects using the most up-to-date code.
- * If you're looking for examples or want to learn more, see README.
+ * 1. Go to the list of URLS given
+ * 2. Enqueue links from it if enabled.
+ * 3. Stay on the page for min-max time specified by the user
+ * 4. Perform any actions specified by the user on the page
  */
 
 // For more information, see https://docs.apify.com/sdk/js
@@ -13,7 +14,16 @@ import { router } from './routes.js';
 // Initialize the Apify SDK
 await Actor.init();
 
-const startUrls = ['https://apify.com'];
+const input = await Actor.getInput<{
+    startUrls: string[]
+    shouldEnqueue?: boolean
+}>();
+
+if (input === null) {
+    await Actor.fail('Please provide input options and then run the actor');
+}
+
+const { startUrls } = input!;
 
 const proxyConfiguration = await Actor.createProxyConfiguration();
 
