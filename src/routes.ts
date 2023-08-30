@@ -7,10 +7,10 @@ router.addDefaultHandler(async ({ page, enqueueLinks, log }) => {
     const url = page.url();
     log.info(`URL: ${url}`);
     if (!url) return;
-    const { host } = new URL(url);
-    log.info(`host: ${host}`);
+    const { origin } = new URL(url);
+    log.info(`origin: ${origin}`);
     await enqueueLinks({
-        globs: [`${host}/*`],
+        globs: [`${origin}/*`],
         label: 'detail',
     });
 });
