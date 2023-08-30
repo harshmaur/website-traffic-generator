@@ -2,10 +2,13 @@ import { Dataset, createPlaywrightRouter } from 'crawlee';
 
 export const router = createPlaywrightRouter();
 
-router.addDefaultHandler(async ({ enqueueLinks, log }) => {
+router.addDefaultHandler(async ({ request, enqueueLinks, log }) => {
     log.info(`enqueueing new URLs`);
+    const url = request.loadedUrl;
+    if (!url) return;
+    const { host } = new URL(url);
     await enqueueLinks({
-        globs: ['https://apify.com/*'],
+        globs: [`${host}/*`],
         label: 'detail',
     });
 });
