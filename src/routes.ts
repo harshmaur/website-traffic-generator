@@ -5,7 +5,6 @@ import { CrawlingContext } from './main';
 export const router = createPlaywrightRouter();
 
 const randomInteractions = (page: Page) => {
-    log.info('Performing random mouse and scroll interactions');
     // move mouse to random position
     const x = Math.floor(Math.random() * 1000);
     const y = Math.floor(Math.random() * 1000);
@@ -50,6 +49,7 @@ router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingCo
     }
 
     // do some random scroll and mouse movements untill the timeout
+    log.info(`${request.url} - Performing random mouse and scroll interactions`);
     await new Promise<void>((resolve) => {
         let timeoutSecs = 0;
         const interval = setInterval(async () => {
