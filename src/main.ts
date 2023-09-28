@@ -21,7 +21,6 @@ type InputType = {
     multiply: number;
     parallelize: boolean;
     proxy: ProxyConfigurationOptions
-
 }
 
 export type CrawlingContext = PlaywrightCrawlingContext<InputType>;

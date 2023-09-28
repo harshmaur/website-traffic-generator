@@ -23,6 +23,8 @@ By default, only the homepage URL is required. The actor will auto-discover link
 
 The crawler operates as per your specifications and halts automatically post completion. Specify a timeout in the Run Options if you wish to stop the crawler after a fixed duration.
 
+The crawler runs very fast you would spend 0.03 USD for crawling 50 pages. You can reduce the size of the instance from 4 GB to 2 GB in run options to save money.
+
 ## Examples
 
 1. **Crawl Each Page 5 Times**
