@@ -27,7 +27,6 @@
             "type": "boolean",
             "description": "If the page has links, should we also crawl them? ",
             "default": true,
-            "prefill": true,
             "editor": "checkbox"
         },
         "parallelize": {
@@ -35,7 +34,6 @@
             "type": "boolean",
             "description": "Should we open pages in parallel? ",
             "default": true,
-            "prefill": true,
             "editor": "checkbox"
         },
         "maxPageWaitSeconds": {
