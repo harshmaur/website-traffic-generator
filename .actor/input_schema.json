@@ -61,10 +61,12 @@
             "unit": "seconds"
         },
         "proxy": {
-            "title": "Proxy configuration",
+            "title": "Choose Proxies",
             "type": "object",
             "description": "Select proxies to be used by your crawler",
-            "editor": "proxy"
+            "editor": "proxy",
+            "sectionCaption": "Proxy Configuration",
+            "sectionDescription": "If you'd like the traffic to come from a specific region, please add proxies, otherwise choose None."
         }
     },
     "required": ["startUrls"]
