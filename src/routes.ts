@@ -12,11 +12,11 @@ router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingCo
     log.info(`${request.url} - Waiting for ${timeoutRandom} seconds`);
 
     if (shouldEnqueue) {
-        log.info(`${request.url} - Extracting and adding them to crawler queue`);
         await enqueueLinks({
             selector: 'a',
             transformRequestFunction: (_request) => {
-                _request.uniqueKey = multiply + _request.url;
+                _request.uniqueKey = multiply + _request.url.substring(0, _request.url.lastIndexOf('#'));
+                _request.keepUrlFragment = false;
                 _request.userData = {
                     minPageWaitSeconds,
                     maxPageWaitSeconds,
@@ -26,6 +26,7 @@ router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingCo
                 };
                 return _request;
             },
+
             strategy: 'same-domain',
             baseUrl: new URL(request.url).origin,
         });
