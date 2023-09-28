@@ -49,7 +49,6 @@ await Actor.main(async () => {
 
     const crawler = new PlaywrightCrawler({
         log,
-        requestQueue: await Actor.openRequestQueue('website-traffic'),
         proxyConfiguration,
         requestHandler: router,
         maxConcurrency: parallelize ? undefined : 1,
