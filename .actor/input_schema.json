@@ -17,8 +17,8 @@
             "sectionCaption": "Crawl Settings",
             "description": "How many times should we generate pageviews for the same page?",
             "default": 1,
-            "editor": "number",
             "prefill": 1,
+            "editor": "number",
             "maximum": 500,
             "minimum": 1
         },
@@ -27,6 +27,7 @@
             "type": "boolean",
             "description": "If the page has links, should we also crawl them? ",
             "default": true,
+            "prefill": true,
             "editor": "checkbox"
         },
         "parallelize": {
@@ -34,6 +35,7 @@
             "type": "boolean",
             "description": "Should we open pages in parallel? ",
             "default": true,
+            "prefill": true,
             "editor": "checkbox"
         },
         "maxPageWaitSeconds": {
