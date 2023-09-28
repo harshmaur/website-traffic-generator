@@ -18,6 +18,7 @@ const randomInteractions = (page: Page) => {
     }, scroll);
 };
 
+// eslint-disable-next-line @typescript-eslint/no-shadow
 router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingContext) => {
     const { enqueueLinks: shouldEnqueue, maxPageWaitSeconds, minPageWaitSeconds, multiply, startUrls } = request.userData;
 

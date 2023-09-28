@@ -8,7 +8,7 @@
 // For more information, see https://docs.apify.com/sdk/js
 import { Actor, log } from 'apify';
 // For more information, see https://crawlee.dev
-import { Configuration, PlaywrightCrawler, PlaywrightCrawlingContext } from 'crawlee';
+import { Configuration, PlaywrightCrawler, PlaywrightCrawlingContext, ProxyConfigurationOptions } from 'crawlee';
 import { router } from './routes.js';
 
 import 'dotenv/config';
@@ -20,6 +20,7 @@ type InputType = {
     enqueueLinks: boolean;
     multiply: number;
     parallelize: boolean;
+    proxy: ProxyConfigurationOptions
 }
 const config = Configuration.getGlobalConfig();
 config.set('persistStorage', false);
@@ -43,9 +44,10 @@ await Actor.main(async () => {
         multiply,
         enqueueLinks,
         parallelize,
+        proxy,
     } = input;
 
-    const proxyConfiguration = await Actor.createProxyConfiguration();
+    const proxyConfiguration = await Actor.createProxyConfiguration(proxy);
 
     const crawler = new PlaywrightCrawler({
         log,
