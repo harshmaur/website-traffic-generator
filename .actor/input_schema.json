@@ -59,6 +59,12 @@
             "maximum": 299,
             "minimum": 1,
             "unit": "seconds"
+        },
+        "proxy": {
+            "title": "Proxy configuration",
+            "type": "object",
+            "description": "Select proxies to be used by your crawler",
+            "editor": "proxy"
         }
     },
     "required": ["startUrls"]
