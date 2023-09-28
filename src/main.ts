@@ -36,11 +36,11 @@ await Actor.main(async () => {
 
     const {
         startUrls,
-        maxPageWaitSeconds = 5,
-        minPageWaitSeconds = 1,
-        multiply = 1,
-        enqueueLinks = false,
-        parallelize = true,
+        maxPageWaitSeconds,
+        minPageWaitSeconds,
+        multiply,
+        enqueueLinks,
+        parallelize,
     } = input;
 
     const proxyConfiguration = await Actor.createProxyConfiguration();

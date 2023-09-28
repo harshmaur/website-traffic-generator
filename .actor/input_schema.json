@@ -1,15 +1,67 @@
 {
     "title": "Website Traffic Generator Options",
-    "description": "Specify the options to generate traffic on urls of your choice. ",
+    "description": "This is actor input schemaSpecify the options to generate traffic on urls of your choice.",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
         "startUrls": {
             "title": "Start URLs",
             "type": "array",
-            "description": "URLs to begin the crawler with. Enter one per line",
-            "prefill": ["https://apify.com"],
-            "editor": "stringList"
+            "description": "URLs to begin the crawler with",
+            "editor": "stringList",
+            "prefill": "[\"https://apify.com\"]"
+        },
+        "maxPageWaitSeconds": {
+            "title": "Max Wait",
+            "type": "integer",
+            "description": "Maximum seconds to wait after loading the page (Default: 5)",
+            "default": 5,
+            "sectionCaption": "tet",
+            "sectionDescription": "test",
+            "editor": "number",
+            "prefill": 5,
+            "maximum": 300,
+            "minimum": 2,
+            "unit": "seconds"
+        },
+        "minPageWaitSeconds": {
+            "title": "Min Wait",
+            "type": "integer",
+            "description": "Minimum seconds to wait after loading the page (Default: 1)",
+            "default": 1,
+            "editor": "number",
+            "prefill": 1,
+            "maximum": 299,
+            "minimum": 1,
+            "unit": "seconds"
+        },
+        "multiply": {
+            "title": "Loops",
+            "type": "integer",
+            "description": "How many times should we generate pageviews for the same page?",
+            "default": 1,
+            "editor": "number",
+            "prefill": 1,
+            "maximum": 500,
+            "minimum": 1
+        },
+        "enqueueLinks": {
+            "title": "Find new links",
+            "type": "boolean",
+            "description": "If the page has links, should we also crawl them? ",
+            "default": true,
+            "sectionCaption": "sc",
+            "sectionDescription": "sd",
+            "editor": "checkbox",
+            "groupCaption": "gc",
+            "groupDescription": "gd"
+        },
+        "parallelize": {
+            "title": "Run in Parallel",
+            "type": "boolean",
+            "description": "Should we open pages in parallel? ",
+            "default": true,
+            "editor": "checkbox"
         }
     },
     "required": ["startUrls"]
