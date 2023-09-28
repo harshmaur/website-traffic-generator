@@ -30,7 +30,8 @@ router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingCo
         await enqueueLinks({
             selector: 'a',
             transformRequestFunction: (_request) => {
-                _request.uniqueKey = multiply + _request.url.substring(0, _request.url.lastIndexOf('#'));
+                const urlWithoutHash = _request.url.substring(0, _request.url.lastIndexOf('#')) || _request.url;
+                _request.uniqueKey = multiply + urlWithoutHash;
                 _request.keepUrlFragment = false;
                 _request.userData = {
                     minPageWaitSeconds,
