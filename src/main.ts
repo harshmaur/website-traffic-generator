@@ -29,6 +29,8 @@ export type CrawlingContext = PlaywrightCrawlingContext<InputType>;
 await Actor.main(async () => {
     const input = await Actor.getInput<InputType>();
 
+    log.info(JSON.stringify(input, null, 2));
+
     if (!input) {
         await Actor.fail('Please provide input options and then run the actor');
         return;
