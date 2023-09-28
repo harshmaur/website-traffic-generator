@@ -9,7 +9,7 @@
             "type": "array",
             "description": "URLs to begin the crawler with",
             "editor": "stringList",
-            "prefill": "[\"https://apify.com\"]"
+            "prefill": ["https://apify.com"]
         },
         "maxPageWaitSeconds": {
             "title": "Max Wait",
