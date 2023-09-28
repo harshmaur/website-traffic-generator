@@ -78,7 +78,7 @@ await Actor.main(async () => {
                         minPageWaitSeconds,
                         maxPageWaitSeconds,
                         enqueueLinks,
-                        multiply,
+                        multiply: i + 1,
                         startUrls,
                     },
                 });
