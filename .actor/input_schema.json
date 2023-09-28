@@ -11,13 +11,38 @@
             "editor": "stringList",
             "prefill": ["https://apify.com"]
         },
+        "multiply": {
+            "title": "Loops",
+            "type": "integer",
+            "sectionCaption": "Crawl Settings",
+            "description": "How many times should we generate pageviews for the same page?",
+            "default": 1,
+            "editor": "number",
+            "prefill": 1,
+            "maximum": 500,
+            "minimum": 1
+        },
+        "enqueueLinks": {
+            "title": "Find new links",
+            "type": "boolean",
+            "description": "If the page has links, should we also crawl them? ",
+            "default": true,
+            "editor": "checkbox"
+        },
+        "parallelize": {
+            "title": "Run in Parallel",
+            "type": "boolean",
+            "description": "Should we open pages in parallel? ",
+            "default": true,
+            "editor": "checkbox"
+        },
         "maxPageWaitSeconds": {
             "title": "Max Wait",
             "type": "integer",
             "description": "Maximum seconds to wait after loading the page (Default: 5)",
             "default": 5,
-            "sectionCaption": "tet",
-            "sectionDescription": "test",
+            "sectionCaption": "Page Wait Settings",
+            "sectionDescription": "Specify how long should the crawler wait after loading the page. We will randomise the wait time between the min and max seconds to make it a more natural page wait.",
             "editor": "number",
             "prefill": 5,
             "maximum": 300,
@@ -34,34 +59,6 @@
             "maximum": 299,
             "minimum": 1,
             "unit": "seconds"
-        },
-        "multiply": {
-            "title": "Loops",
-            "type": "integer",
-            "description": "How many times should we generate pageviews for the same page?",
-            "default": 1,
-            "editor": "number",
-            "prefill": 1,
-            "maximum": 500,
-            "minimum": 1
-        },
-        "enqueueLinks": {
-            "title": "Find new links",
-            "type": "boolean",
-            "description": "If the page has links, should we also crawl them? ",
-            "default": true,
-            "sectionCaption": "sc",
-            "sectionDescription": "sd",
-            "editor": "checkbox",
-            "groupCaption": "gc",
-            "groupDescription": "gd"
-        },
-        "parallelize": {
-            "title": "Run in Parallel",
-            "type": "boolean",
-            "description": "Should we open pages in parallel? ",
-            "default": true,
-            "editor": "checkbox"
         }
     },
     "required": ["startUrls"]
