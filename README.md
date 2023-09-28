@@ -1,61 +1,85 @@
-## PlaywrightCrawler template
+# Increase Website Traffic Tool
 
-This template is a production ready boilerplate for developing an [Actor](https://apify.com/actors) with `PlaywrightCrawler`. Use this to bootstrap your projects using the most up-to-date code.
+Boost your site's performance with our Increase Website Traffic Tool. Utilize our Website Traffic Generator to draw targeted traffic, mimic page views, and test against threats. Harness Google Analytics insights alongside, making it an unmatched tool for enhancing your online visibility.
 
-> We decided to split Apify SDK into two libraries, Crawlee and Apify SDK v3. Crawlee will retain all the crawling and scraping-related tools and will always strive to be the best [web scraping](https://apify.com/web-scraping) library for its community. At the same time, Apify SDK will continue to exist, but keep only the Apify-specific features related to building actors on the Apify platform. Read the upgrading guide to learn about the changes.
-> 
+## Features
 
-## Resources
+-   **Generate Real User Page Views**: Simulate real user interactions by generating genuine page views.
+-   **Mimic Real Users**: Employ various methods to mimic real user behavior while generating traffic.
+-   **Automatic Link Discovery and Crawling**: Automatically identify links on your site and crawl them seamlessly.
+-   **Location-Specific Views**: Generate views from any geographic location of your choice, tailoring your traffic to your market.
 
-If you're looking for examples or want to learn more visit:
+## Use Cases
 
-- [Crawlee + Apify Platform guide](https://crawlee.dev/docs/guides/apify-platform)
-- [Documentation](https://crawlee.dev/api/playwright-crawler/class/PlaywrightCrawler) and [examples](https://crawlee.dev/docs/examples/playwright-crawler)
-- [Node.js tutorials](https://docs.apify.com/academy/node-js) in Academy
-- [Scraping single-page applications with Playwright](https://blog.apify.com/scraping-single-page-applications-with-playwright/)
-- [How to scale Puppeteer and Playwright](https://blog.apify.com/how-to-scale-puppeteer-and-playwright/)
-- [Integration with Zapier](https://apify.com/integrations), Make, GitHub, Google Drive and other apps
-- [Video guide on getting scraped data using Apify API](https://www.youtube.com/watch?v=ViYYDHSBAKM)
+1. **SEO Optimization**: Improve search engine rankings by increasing the number of page views and unique visits.
+2. **Load Testing**: Assess your website's performance under high traffic conditions.
+3. **Ad Revenue Optimization**: Boost ad impressions and revenue by increasing page views.
+4. **Geographic Targeting**: Test your website’s performance and appearance in different geographic locations.
+5. **Content Validation**: Ensure your content resonates with your target audience by analyzing user interactions.
 
+## Crawler Details
 
-## Getting started
+By default, only the homepage URL is required. The actor will auto-discover links on your site, pausing for a random interval of 1-5 seconds between actions. Specify the number of loops if you wish to crawl the website/links multiple times.
 
-For complete information [see this article](https://docs.apify.com/platform/actors/development#build-actor-locally). To run the actor use the following command:
+The crawler operates as per your specifications and halts automatically post completion. Specify a timeout in the Run Options if you wish to stop the crawler after a fixed duration.
 
+## Examples
+
+1. **Crawl Each Page 5 Times**
+
+```json
+{
+    "enqueueLinks": true,
+    "maxPageWaitSeconds": 5,
+    "minPageWaitSeconds": 1,
+    "multiply": 5,
+    "parallelize": true,
+    "proxy": {
+        "useApifyProxy": false
+    },
+    "startUrls": ["https://www.webscrapinghq.com"]
+}
 ```
-apify run
+
+2. **Wait 1 - 2 Minutes**
+
+```json
+{
+    "enqueueLinks": true,
+    "maxPageWaitSeconds": 120,
+    "minPageWaitSeconds": 60,
+    "multiply": 1,
+    "parallelize": true,
+    "proxy": {
+        "useApifyProxy": false
+    },
+    "startUrls": ["https://www.webscrapinghq.com"]
+}
 ```
 
-## Deploy to Apify
+3. **Only Crawl The Provided Links**
 
-### Connect Git repository to Apify
+```json
+{
+    "enqueueLinks": false,
+    "maxPageWaitSeconds": 120,
+    "minPageWaitSeconds": 60,
+    "multiply": 1,
+    "parallelize": true,
+    "proxy": {
+        "useApifyProxy": false
+    },
+    "startUrls": [
+        "https://www.webscrapinghq.com",
+        "https://www.webscrapinghq.com/blog"
+    ]
+}
+```
 
-If you've created a Git repository for the project, you can easily connect to Apify:
+## Contact
 
-1. Go to [Actor creation page](https://console.apify.com/actors/new)
-2. Click on **Link Git Repository** button
+For custom requirements, feel free to reach out through our website WebScrapingHQ or email us at harsh@webscrapinghq.com.
 
-### Push project on your local machine to Apify
+## Updates
 
-You can also deploy the project on your local machine to Apify without the need for the Git repository.
-
-1. Log in to Apify. You will need to provide your [Apify API Token](https://console.apify.com/account/integrations) to complete this action.
-
-    ```
-    apify login
-    ```
-
-2. Deploy your Actor. This command will deploy and build the Actor on the Apify Platform. You can find your newly created Actor under [Actors -> My Actors](https://console.apify.com/actors?tab=my).
-
-    ```
-    apify push
-    ```
-
-## Documentation reference
-
-To learn more about Apify and Actors, take a look at the following resources:
-
-- [Apify SDK for JavaScript documentation](https://docs.apify.com/sdk/js)
-- [Apify SDK for Python documentation](https://docs.apify.com/sdk/python)
-- [Apify Platform documentation](https://docs.apify.com/platform)
-- [Join our developer community on Discord](https://discord.com/invite/jyEM2PRvMU)
+The actor receives regular updates. Feel free to submit new feature requests or report bugs for continuous improvement.
