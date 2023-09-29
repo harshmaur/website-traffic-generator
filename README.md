@@ -80,7 +80,7 @@ The crawler runs very fast you would spend 0.03 USD for crawling 50 pages. You c
 
 ## Contact
 
-For custom requirements, feel free to reach out through our website WebScrapingHQ or email us at harsh@webscrapinghq.com.
+For custom requirements, feel free to reach out through our website [WebScrapingHQ](https://www.webscrapinghq.com) or email us at harsh@webscrapinghq.com.
 
 ## Updates
 
