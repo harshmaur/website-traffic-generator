@@ -17,6 +17,10 @@ Boost your site's performance with our Increase Website Traffic Tool. Utilize ou
 4. **Geographic Targeting**: Test your website’s performance and appearance in different geographic locations.
 5. **Content Validation**: Ensure your content resonates with your target audience by analyzing user interactions.
 
+## How to Use
+
+[Watch the video ->](https://www.loom.com/share/1c63d5eb428a4fb9b001738759c4cb31?sid=7b569002-df9b-4931-a65a-43772df2fbd5)
+
 ## Crawler Details
 
 By default, only the homepage URL is required. The actor will auto-discover links on your site, pausing for a random interval of 1-5 seconds between actions. Specify the number of loops if you wish to crawl the website/links multiple times.

@@ -14,7 +14,6 @@ import { router } from './routes.js';
 import 'dotenv/config';
 
 type InputType = {
-
     startUrls: string[];
     maxPageWaitSeconds: number;
     minPageWaitSeconds: number;
