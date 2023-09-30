@@ -57,7 +57,7 @@ router.addDefaultHandler(async ({ page, enqueueLinks, request, log }: CrawlingCo
                 clearInterval(interval);
                 resolve();
             }
-            
+
             timeoutSecs += 1;
             randomInteractions(page);
         }, 1000);
