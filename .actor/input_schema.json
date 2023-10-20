@@ -9,7 +9,7 @@
             "type": "array",
             "description": "URLs to begin the crawler with",
             "editor": "stringList",
-            "prefill": ["https://www.webscrapinghq.com"]
+            "prefill": ["https://apify.com"]
         },
         "multiply": {
             "title": "Loops",
