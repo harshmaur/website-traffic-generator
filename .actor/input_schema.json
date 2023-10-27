@@ -73,6 +73,9 @@
         "proxy": {
             "title": "Choose Proxies",
             "type": "object",
+            "default": {
+                "useApifyProxy": false
+            },
             "description": "Select proxies to be used by your crawler",
             "editor": "proxy",
             "sectionCaption": "Proxy Configuration",
