@@ -1,0 +1,28 @@
+{
+    "actorSpecification": 1,
+    "views": {
+        "overview": {
+            "title": "Summary",
+            "transformation": {
+                "fields": ["url", "title", "waitSeconds"]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "url": {
+                        "label": "Page URL",
+                        "format": "link"
+                    },
+                    "title": {
+                        "label": "Page Title",
+                        "format": "text"
+                    },
+                    "waitSeconds": {
+                        "label": "Seconds Waited",
+                        "format": "number"
+                    }
+                }
+            }
+        }
+    }
+}
