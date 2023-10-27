@@ -22,6 +22,16 @@
             "maximum": 500,
             "minimum": 1
         },
+        "maxPages": {
+            "title": "Maximum Number of Pages to Crawl",
+            "type": "integer",
+            "description": "Limit the number of pages to prevent crawler for running too long. (Default: 50)",
+            "default": 50,
+            "prefill": 50,
+            "editor": "number",
+            "maximum": 9999999999,
+            "minimum": 1
+        },
         "enqueueLinks": {
             "title": "Find new links",
             "type": "boolean",
