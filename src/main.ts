@@ -79,7 +79,6 @@ await Actor.main(async () => {
     const proxyConfiguration = await Actor.createProxyConfiguration(proxy);
 
     const crawler = new PlaywrightCrawler({
-        headless: false,
         log,
         proxyConfiguration,
         requestHandler: router,
