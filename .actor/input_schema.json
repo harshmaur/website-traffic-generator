@@ -70,6 +70,29 @@
             "minimum": 1,
             "unit": "seconds"
         },
+        "blockAds": {
+            "title": "Block Ads",
+            "type": "boolean",
+            "description": "Should we block ads on the page? ",
+            "default": false,
+            "editor": "checkbox",
+            "sectionCaption": "Block Ads, Images or Scripts",
+            "sectionDescription": "Block ads, images or scripts to make the crawler run faster."
+        },
+        "blockImages": {
+            "title": "Block Images",
+            "type": "boolean",
+            "description": "Should we block images on the page? ",
+            "default": false,
+            "editor": "checkbox"
+        },
+        "blockPatterns": {
+            "title": "Custom Block Patterns",
+            "type": "array",
+            "description": "Enter custom strings that we will look to block. Ex. `google` will block any script/image/resource that contains google in its url. This is useful to block things like chat widgets, and scripts that make the website load slower.",
+            "editor": "stringList",
+            "prefill": []
+        },
         "proxy": {
             "title": "Choose Proxies",
             "type": "object",

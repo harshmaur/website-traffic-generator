@@ -1,3 +1,5 @@
+import fs from "fs/promises";
+/* eslint-disable no-underscore-dangle */
 /**
  * 1. Go to the list of URLS given
  * 2. Enqueue links from it if enabled.
@@ -8,6 +10,8 @@
 // For more information, see https://docs.apify.com/sdk/js
 import { Actor, log } from "apify";
 // For more information, see https://crawlee.dev
+import { fileURLToPath } from "url";
+import path, { dirname } from "path";
 import {
     PlaywrightCrawler,
     PlaywrightCrawlingContext,
@@ -16,6 +20,7 @@ import {
 import { router } from "./routes.js";
 
 import "dotenv/config";
+import { blockScripts } from "./blockScripts";
 
 type InputType = {
     startUrls: string[];
@@ -26,9 +31,26 @@ type InputType = {
     parallelize: boolean;
     maxPages: number;
     proxy: ProxyConfigurationOptions;
+    blockAds: boolean;
+    blockImages: boolean;
+    blockPatterns: string[];
 };
 
 export type CrawlingContext = PlaywrightCrawlingContext<InputType>;
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const adlistFolder = path.join(__dirname, "../adlist");
+
+const easyList = await fs.readFile(
+    path.join(adlistFolder, "easylist.txt"),
+    "utf-8"
+);
+const resources = await fs.readFile(
+    path.join(adlistFolder, "resources.txt"),
+    "utf-8"
+);
 
 await Actor.main(async () => {
     const input = await Actor.getInput<InputType>();
@@ -49,17 +71,32 @@ await Actor.main(async () => {
         parallelize,
         proxy,
         maxPages,
+        blockAds,
+        blockImages,
+        blockPatterns,
     } = input;
 
     const proxyConfiguration = await Actor.createProxyConfiguration(proxy);
 
     const crawler = new PlaywrightCrawler({
+        headless: false,
         log,
         proxyConfiguration,
         requestHandler: router,
-        maxConcurrency: parallelize ? undefined : 1,
+        maxConcurrency: parallelize ? 100 : 1,
         maxRequestRetries: 3,
         maxRequestsPerCrawl: maxPages,
+        preNavigationHooks: [
+            (ctx) =>
+                blockScripts({
+                    ctx,
+                    easyList,
+                    resources,
+                    blockAds,
+                    blockImages,
+                    blockPatterns,
+                }),
+        ],
     });
 
     const uniqueMultiplies = Array.from({ length: multiply }, (_, i) => i + 1);

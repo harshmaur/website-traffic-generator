@@ -82,6 +82,25 @@ The crawler runs very fast you would spend 0.03 USD for crawling 50 pages. You c
 }
 ```
 
+4. **Block Ads and Images and Scripts**
+
+```json
+{
+    "blockAds": true,
+    "blockImages": true,
+    "blockPatterns": ["gtm"],
+    "enqueueLinks": true,
+    "maxPageWaitSeconds": 120,
+    "minPageWaitSeconds": 60,
+    "multiply": 1,
+    "parallelize": true,
+    "proxy": {
+        "useApifyProxy": false
+    },
+    "startUrls": ["https://www.webscrapinghq.com"]
+}
+```
+
 ## Contact
 
 For custom requirements, feel free to reach out through our website [WebScrapingHQ](https://www.webscrapinghq.com) or email us at harsh@webscrapinghq.com.
@@ -89,3 +108,7 @@ For custom requirements, feel free to reach out through our website [WebScraping
 ## Updates
 
 The actor receives regular updates. Feel free to submit new feature requests or report bugs for continuous improvement.
+
+```
+
+```

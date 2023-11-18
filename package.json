@@ -7,6 +7,7 @@
         "node": ">=16.0.0"
     },
     "dependencies": {
+        "@cliqz/adblocker-playwright": "^1.26.12",
         "apify": "^3.0.0",
         "crawlee": "^3.0.0",
         "dotenv": "^16.3.1",
