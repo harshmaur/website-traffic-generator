@@ -37,6 +37,7 @@ export const blockScripts = async ({
                 ".woff",
                 ".pdf",
                 ".zip",
+                ".webp",
             ]
         );
     }
@@ -46,7 +47,7 @@ export const blockScripts = async ({
 
     if (blocks.length > 0) {
         await blockRequests({
-            urlPatterns: blockPatterns,
+            urlPatterns: blocks,
         });
     }
 };

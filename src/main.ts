@@ -20,7 +20,7 @@ import {
 import { router } from "./routes.js";
 
 import "dotenv/config";
-import { blockScripts } from "./blockScripts";
+import { blockScripts } from "./blockScripts.js";
 
 type InputType = {
     startUrls: string[];
