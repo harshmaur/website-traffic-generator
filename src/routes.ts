@@ -1,21 +1,7 @@
 import { Dataset, createPlaywrightRouter } from "crawlee";
-import { Page } from "playwright";
 import { CrawlingContext } from "./main";
 
 export const router = createPlaywrightRouter();
-
-const randomInteractions = (page: Page) => {
-    // move mouse to random position
-    const x = Math.floor(Math.random() * 1000);
-    const y = Math.floor(Math.random() * 1000);
-    page.mouse.move(x, y);
-
-    // scroll randomly
-    const scroll = Math.floor(Math.random() * 1000);
-    page.evaluate((_scroll) => {
-        window.scrollBy(0, _scroll);
-    }, scroll);
-};
 
 // eslint-disable-next-line @typescript-eslint/no-shadow
 router.addDefaultHandler(
@@ -62,8 +48,6 @@ router.addDefaultHandler(
             });
         }
 
-        // do some random scroll and mouse movements untill the timeout
-        log.info(`${title} - Performing random mouse and scroll interactions`);
         await new Promise<void>((resolve) => {
             let timeoutSecs = 0;
             const interval = setInterval(async () => {
@@ -73,7 +57,6 @@ router.addDefaultHandler(
                 }
 
                 timeoutSecs += 1;
-                randomInteractions(page);
             }, 1000);
         });
         await page.waitForTimeout(timeoutRandom * 1000);
