@@ -8,6 +8,7 @@ Boost your site's performance with our Increase Website Traffic Tool. Utilize ou
 -   **Mimic Real Users**: Employ various methods to mimic real user behavior while generating traffic.
 -   **Automatic Link Discovery and Crawling**: Automatically identify links on your site and crawl them seamlessly.
 -   **Location-Specific Views**: Generate views from any geographic location of your choice, tailoring your traffic to your market.
+-   **Block Ads and Images**: Block ads and images to reduce bandwidth consumption and improve performance.
 
 ## Use Cases
 
@@ -108,7 +109,3 @@ For custom requirements, feel free to reach out through our website [WebScraping
 ## Updates
 
 The actor receives regular updates. Feel free to submit new feature requests or report bugs for continuous improvement.
-
-```
-
-```
