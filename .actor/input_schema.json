@@ -9,7 +9,7 @@
             "type": "array",
             "description": "URLs to begin the crawler with",
             "editor": "stringList",
-            "prefill": ["https://8om.io"]
+            "prefill": ["https://www.webscrapinghq.com"]
         },
         "multiply": {
             "title": "Loops",
@@ -26,8 +26,8 @@
             "title": "Maximum Number of Pages to Crawl",
             "type": "integer",
             "description": "Limit the number of pages to prevent crawler for running too long. (Default: 50)",
-            "default": 50,
-            "prefill": 50,
+            "default": 10,
+            "prefill": 10,
             "editor": "number",
             "maximum": 9999999999,
             "minimum": 1
